@@ -1,4 +1,4 @@
-def somabit(bits,a,b):	
+def somabit(a,b):	
 	num1 = []
 	num2 = []
 	vai1 = []
@@ -16,9 +16,11 @@ def somabit(bits,a,b):
 	# Se a soma das parcelas mais vai1 for maior ou igual a dois, então
 	# significa que "vai um" na soma de bits no índice antes do atual.
 
-	for i in range(bits):
+	for i in range(0,len(num1)):
 		vai1.append(0)
-
+	
+	bits = len(num1)
+	
 	for i in range(-1,(-1)*bits,-1):
 		if (num1[i] + num2[i] + vai1[i] >= 2):
 			vai1[i-1] = 1
@@ -61,7 +63,7 @@ def complemento2(a):
 			um.append(0)
 		um.append(1)
 			
-		resultado = somabit(len(comp),comp,um)
+		resultado = somabit(comp,um)
 		return resultado
 		
 def subtracao(bits,asinal,a,bsinal,b):
@@ -78,7 +80,7 @@ def subtracao(bits,asinal,a,bsinal,b):
 	else:
 		num2 = [int(i) for i in b]
 	
-	resultado = somabit(bits,num1,num2)
+	resultado = somabit(num1,num2)
 	
 	if(len(resultado) > bits):
 		del(resultado[0])
